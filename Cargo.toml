@@ -10,6 +10,15 @@ crate-type = ["cdylib"]
 # 图形核心
 wgpu = { version = "24.0", features = ["dx12"] } # 强制开启 dx12 以便与 WPF 共享纹理
 raw-window-handle = "0.6"
+wgpu-hal = "24.0"
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.58", features = [
+    "Win32_Graphics_Direct3D12",
+    "Win32_Graphics_Dxgi",
+    "Win32_Foundation",
+    "Win32_System_LibraryLoader"
+] }
 
 # 2D 几何处理 (ROI 必备)
 lyon = "1.0"
@@ -20,6 +29,7 @@ glam = "0.24" # 比 cgmath 更快更现代
 
 # 跨语言绑定
 libc = "0.2"
+pollster = "0.4.0"
 
 [build-dependencies]
 csbindgen = "1.8"
