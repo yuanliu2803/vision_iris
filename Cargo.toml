@@ -1,7 +1,8 @@
 [package]
-name = "vision_iris"
+name = "moga_iris"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
+
 [lib]
 crate-type = ["cdylib"]
 
@@ -9,6 +10,7 @@ crate-type = ["cdylib"]
 # 图形核心
 wgpu = { version = "24.0", features = ["dx12"] } # 强制开启 dx12 以便与 WPF 共享纹理
 raw-window-handle = "0.6"
+
 # 2D 几何处理 (ROI 必备)
 lyon = "1.0"
 
@@ -18,6 +20,6 @@ glam = "0.24" # 比 cgmath 更快更现代
 
 # 跨语言绑定
 libc = "0.2"
-csbindgen = "1.9.7"
+
 [build-dependencies]
-csbindgen = "1.9.7"
+csbindgen = "1.8"
