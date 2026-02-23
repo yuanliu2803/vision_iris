@@ -10,7 +10,7 @@ pub struct GpuContext {
 impl GpuContext {
     pub async fn new() -> Self {
         let instance = Instance::new(&InstanceDescriptor {
-            backends: Backends::DX12, // WPF 在 Windows 上与 DX11/12 兼容性最好
+            backends: Backends::all(), // WPF 在 Windows 上与 DX11/12 兼容性最好
             ..Default::default()
         });
         let adapter = instance
